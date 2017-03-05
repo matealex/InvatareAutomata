@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 
-namespace Lab1
+namespace DataSetGenerator
 {
     public class PointsGenerator
     {
         private readonly Random random;
-        private readonly List<Zone> zones;
         private readonly int range;
+        private readonly List<Zone> zones;
 
         public PointsGenerator(List<Zone> zones, int range)
         {
@@ -30,6 +31,13 @@ namespace Lab1
                 }
                     );
             }
+
+            var outputFile = new StreamWriter("output.txt");
+            foreach (var pointD in points)
+            {
+                outputFile.WriteLine($"{pointD.Point.X} {pointD.Point.Y} {zones.IndexOf(pointD.Zone)}");
+            }
+
             return points;
         }
 

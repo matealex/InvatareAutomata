@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace Lab1
+namespace DataSetGenerator
 {
     public class Zone
     {

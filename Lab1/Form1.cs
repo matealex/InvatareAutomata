@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using DataSetGenerator;
 
 namespace Lab1
 {
@@ -42,12 +42,6 @@ namespace Lab1
                     series.Points.AddXY(pointD.Point.X, pointD.Point.Y);
                 }
                 chart1.Series.Add(series);
-            }
-
-            var outputFile = new StreamWriter("output.txt");
-            foreach (var pointD in points)
-            {
-                outputFile.WriteLine($"{pointD.Point.X} {pointD.Point.Y} {zones.IndexOf(pointD.Zone)}");
             }
         }
     }
