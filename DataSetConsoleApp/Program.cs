@@ -7,7 +7,7 @@ namespace DataSetConsoleApp
 {
     internal class Program
     {
-        private static readonly int scaleFactor = 2;
+        private static readonly int scaleFactor = 1;
 
         private static void Main(string[] args)
         {
@@ -24,6 +24,7 @@ namespace DataSetConsoleApp
             var points = pointsGenerator.Generate(zones.Count*10000);
 
             var image = new Bitmap(2*interval*scaleFactor, 2*interval*scaleFactor);
+            var g = Graphics.FromImage(image);
 
             foreach (var zone in zones)
             {
@@ -32,6 +33,19 @@ namespace DataSetConsoleApp
                     var coordinates = ImageCoordinates(pointD, interval);
                     image.SetPixel(coordinates.X, coordinates.Y, zone.DrawColor);
                 }
+
+                var p1 = ImageCoordinates(new PointD
+                {
+                    Point = new PointF((float) (zone.Point.X - zone.XOffset/2),
+                        (float) (zone.Point.Y + zone.YOffset/2))
+                }, interval);
+
+                var r1 = new Rectangle(
+                    p1.X,
+                    p1.Y,
+                    (int) (zone.XOffset*scaleFactor),
+                    (int) (zone.YOffset*scaleFactor));
+                g.DrawRectangle(Pens.Yellow, r1);
             }
 
             image.Save("output.bmp");
