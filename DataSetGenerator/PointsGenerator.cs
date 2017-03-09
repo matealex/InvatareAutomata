@@ -54,8 +54,9 @@ namespace DataSetGenerator
             {
                 var x = 2*range*random.NextDouble() - range;
                 var gx = Math.Pow(Math.E, -Math.Pow(m - x, 2)/(2*Math.Pow(sigma, 2)));
-                var pa = random.NextDouble();
-                if (gx > pa)
+
+				var pa = random.Next(0, 100000) / 100000.0;
+                if (gx >= pa)
                 {
                     return (float) x;
                 }
