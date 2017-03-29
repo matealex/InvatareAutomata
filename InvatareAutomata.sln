@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSetGenerator", "DataSet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSetConsoleApp", "DataSetConsoleApp\DataSetConsoleApp.csproj", "{86450024-076C-438D-8947-26459E9F4DBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSetGrouping", "DataSetGrouping\DataSetGrouping.csproj", "{6C8AC602-5B7E-419E-9E18-EBD31FB8D3D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{86450024-076C-438D-8947-26459E9F4DBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86450024-076C-438D-8947-26459E9F4DBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86450024-076C-438D-8947-26459E9F4DBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C8AC602-5B7E-419E-9E18-EBD31FB8D3D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C8AC602-5B7E-419E-9E18-EBD31FB8D3D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C8AC602-5B7E-419E-9E18-EBD31FB8D3D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C8AC602-5B7E-419E-9E18-EBD31FB8D3D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

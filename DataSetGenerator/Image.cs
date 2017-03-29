@@ -22,10 +22,22 @@ namespace DataSetGenerator
 			image = new Bitmap(2 * size * scale, 2 * size * scale);
 		}
 
-		public void SetPixel(PointD point, Color color)
+		public void SetPixel(PointD point)
 		{
 			var t = ImageCoordinates(point);
-			image.SetPixel(t.X, t.Y, color);
+			image.SetPixel(t.X, t.Y, point.Zone.DrawColor);
+		}
+
+		public void DrawCircle(PointD point)
+		{
+			using (Graphics grf = Graphics.FromImage(image))
+			{
+				using (Brush brsh = new SolidBrush(point.Zone.DrawColor))
+				{
+					var t = ImageCoordinates(point);
+					grf.FillEllipse(brsh, t.X, t.Y, 5, 5);
+				}
+			}
 		}
 
 		public void Save()

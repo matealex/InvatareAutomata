@@ -15,22 +15,23 @@ namespace DataSetConsoleApp
             {
                 new Zone(new Point(350, 350), 5, 10, Color.Red),
                 new Zone(new Point(150, 150), 10, 10, Color.Blue),
-                new Zone(new Point(-150, 350), 10, 5, Color.Green)
+                new Zone(new Point(-150, 350), 10, 5, Color.Green),
+
+				new Zone(new Point(250, 350), 5, 10, Color.Red),
+				new Zone(new Point(150, 250), 10, 10, Color.Blue),
+				new Zone(new Point(-150, -350), 10, 5, Color.Green)
             };
 
             var interval = 400;
             var pointsGenerator = new PointsGenerator(zones, interval);
-            var points = pointsGenerator.Generate(zones.Count*10000);
+            var points = pointsGenerator.Generate(zones.Count*1000);
 
 			var image = new DataSetGenerator.Image("output.bmp", interval, scaleFactor);
 
-            foreach (var zone in zones)
-            {
-                foreach (var pointD in points.Where(p => p.Zone.Equals(zone)))
-                {
-					image.SetPixel(pointD, zone.DrawColor);
-                }
-            }
+			foreach (var pointD in points)
+			{
+				image.SetPixel(pointD);
+			}
 
             image.Save();
         }
